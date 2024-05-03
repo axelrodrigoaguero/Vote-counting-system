@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scrum</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://bootswatch.com/5/litera/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+
+</head>
+
+<body>
+    <br>
+    <h6 style="margin-left: 70%; margin-top: -1%;">ELECCIONES MUNICIPALES P.A.S.O</h6>
+    <h6 style="margin-left: 78%;">LOCALIDAD</h6>
+    <h6 style="margin-left: 76%;">{{ date }}</h6>
+
+    <h6 style="margin-left: 5%; margin-top: -7%;">H.JUNTA ELECTORAL</h6>
+    <h6 style="margin-left: 5%;">PROVICIA MENDOZA</h6>
+
+    <h1 style="margin-left: 30%; margin-top: 5%;"> CERTIFICADO DE ESCRUTINIO</h1>
+
+    {% for data in sheet %}
+    <table class="table table-bordered" style="width: 1200px; margin-left: 50px; margin-top: 20px;">
+        <tr>
+            <th style="width: 10%;">DEPARTAMENTO: {{data.1}}</th>
+            <th style="width: 10%;">CIRCUITO: {{data.2}}</th>
+            <th style="width: 10%;">MESA: {{data.3}}</th>
+        </tr>
+
+        <tr>
+            <th style="width: 100px;">CANTIDAD DE ELECTORES QUE VOTARON: </th>
+            <th style="width: 10px;">{{data.4}}</th>
+        </tr>
+
+        <tr>
+            <th style="width: 100px;">CANTIDAD DE BOLETAS UNICAS EN URNA: </th>
+            <th style="width: 10px;">{{data.5}}</th>
+        </tr>
+
+        <tr>
+            <th style="width: 100px;">DIFERENCIA: </th>
+            <th style="width: 10px;">{{data.6}}</th>
+        </tr>
+    </table>
+    {% endfor %}
+    <table class="table table-bordered" style="width: 1200px; margin-left: 50px; margin-top: 20px;">
+        <tr>
+            <th style="width: 10%;">AGRUPACION POLITICA</th>
+            <th style="width: 5%;">LISTA</th>
+            <th style="width: 10%;">INTENDENTE</th>
+            <th style="width: 10%;">CONCEJALES</th>
+        </tr>
+
+        <tr>
+            <th style="width: 100px;">PARTIDO VERDE</th>
+            <th style="width: 10px;">181</th>
+        </tr>
+
+        <tr>
+            <th style="width: 100px;">CAMBIA MENDOZA</th>
+            <th style="width: 10px;">
+                <p>501 A </p>
+                <p>501 B </p>
+            </th>
+
+        </tr>
+
+        <tr>
+            <th style="width: 100px;">FRENTE ELEGÍ GESTIÓN LA PAZ</th>
+            <th style="width: 10px;">506</th>
+        </tr>
+
+
+
+        <tr>
+            <th style="width: 100px;">VOTOS NULOS</th>
+            {% for nulo in nulos %}
+                <th style="width: 10px;">{{nulo.1}}</th>
+            {% endfor %}
+        </tr>
+        
+
+        <tr>
+            <th style="width: 100px;">VOTOS RECURRIDOS</th>
+            <th style="width: 10px;">0 -_</th>
+        </tr>
+
+        <tr>
+            <th style="width: 100px;">VOTOS DE IDENTIDAD IMPUGNADA</th>
+            <th style="width: 10px;">0 -_</th>
+        </tr>
+
+        
+        <tr>
+            <th style="width: 100px;">VOTOS BLANCOS</th>
+            {% for blanco in blancos %}
+                <th style="width: 10px;">{{blanco.1}}</th>            
+            {% endfor %}
+        </tr>
+        
+
+
+        <tr>
+            <th style="width: 100px;">TOTAL:</th>
+        </tr>
+    </table>
+
+</body>
+
+</html>

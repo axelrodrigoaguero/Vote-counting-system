@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{%block content%}
+
+
+<h1>Formulario Carga de datos</h1>
+<form method="POST" action="/guardar_datos" id="formulario">
+    <label for="departamento">Departamento:</label>
+    <input type="text" name="departamento" id="departamento" required><br><br>
+
+    <label for="circuito">Circuito:</label>
+    <input type="text" name="circuito" id="circuito" required><br><br>
+
+    <label for="mesa">Mesa:</label>
+    <input type="number" name="mesa" id="mesa" required><br><br>
+
+    <label for="electores">Cantidad de electores que votaron:</label>
+    <input type="number" name="electores" id="electores" required><br><br>
+
+    <label for="boletas">Cantidad de boletas únicas en urna:</label>
+    <input type="number" name="boletas" id="boletas" required><br><br>
+
+    <label for="diferencia">Diferencia:</label>
+    <input type="number" name="diferencia" id="diferencia" required><br><br>
+
+    <input type="submit" value="Guardar" data-bs-toggle="modal" data-bs-target="#guardarModal">
+</form>
+
+<!-- Modal - Confirmar Guardar Datos -->
+<div class="modal fade" id="guardarModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="guardarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="guardarModalLabel">Confirmar Guardar Datos</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas guardar los datos ingresados?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" form="formulario" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock%}

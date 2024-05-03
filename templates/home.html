@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+{%block content%}
+
+<style>
+    body {
+        background-color: aliceblue;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    }
+
+    .row {
+        background-image: url("/static/images/fondo1.webp");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-attachment: fixed;
+        margin-top: 50px;
+        height: 490px;
+        width: 70%;
+        border-radius: 5px;
+        border: 10px solid rgb(255, 255, 255);
+
+
+
+
+    }
+
+    .titulo {
+        color: rgb(0, 0, 0);
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    }
+
+    .text-center {
+        margin-top: -70px;
+        height: 20px;
+    }
+
+    .btn,
+    btn-dark {
+        height: auto;
+        width: 250px;
+
+    }
+
+    .btn,
+    a {
+        font-size: 22px;
+        font: center;
+
+
+    }
+</style>
+
+<center>
+    <div class="row">
+        <div style="background-color: rgb(255, 255, 255); height: 80px;" class="titulo">
+            <h1 style="font-size: 60px; "> CONTEO DE VOTOS 2023 </h1>
+        </div>
+
+        <div class="text-center">
+            <button id="btn" class="btn btn-dark">INICIAR VOTACIONES</button>
+            <div id="botones">
+                <br>
+                <a href="/selection_route" class="btn btn-dark"> INICIAR </a>
+                <a href="/data_sheet" class="btn btn-dark"> INFORME VOTACION </a>
+                <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#borrarVotosModal">
+                    BORRAR VOTOS </a>
+                <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#borrarDatosModal">
+                    BORRAR DATOS PLANILLA </a>
+
+
+                <!-- Modal - Borrar Votos -->
+                <div class="modal fade" id="borrarVotosModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="borrarVotosModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="borrarVotosModalLabel">Confirmar Borrado de Votos</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>¿Estás seguro de que deseas borrar todos los votos?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <a href="/borrar_votos" class="btn btn-primary">Borrar Votos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal - Borrar Datos Planilla -->
+                <div class="modal fade" id="borrarDatosModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="borrarDatosModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="borrarDatosModalLabel">Confirmar Borrado de Datos de
+                                    Planilla</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>¿Estás seguro de que deseas borrar todos los datos de la planilla?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <a href="/borrar_datos_planilla" class="btn btn-primary">Borrar Datos Planilla</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+</center>
+
+
+
+
+
+
+{%endblock%}

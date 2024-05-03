@@ -1,0 +1,85 @@
+
+#botones {
+  display: none;
+  gap: 10px; /* Agregamos la propiedad gap para la separación entre los botones */
+}
+
+#botones.mostrar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: aparecer 0.5s ease-in-out;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); /* Cambiamos el valor de translateY para que los botones aparezcan más abajo */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.card {
+  height: 640px;
+}
+
+.card-header {
+  background-color: #293844ec;
+  color: white;
+
+}
+
+.selectorPersonal {
+  background-color: #293844c2;
+  color: white;
+}
+
+h6 {
+  font-size: 87%;
+}
+
+h4 {
+  font-size: 80%;
+}
+
+.card-img-top {
+  max-width: 40%;
+  max-height: 40%;
+}
+
+
+
+
+
+
+
+
+
+.card-img-custom {
+  margin-top: -9%;
+  margin-bottom: -9%;
+  object-fit: cover;
+  float: left;
+  margin-right: 10px;
+  max-width: 23%;
+  max-height: 23%;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+.title-container .text-right {
+  text-align: left;
+}
+
+li {
+  font-size: 80%;
+}
